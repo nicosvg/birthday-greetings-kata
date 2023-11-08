@@ -1,5 +1,8 @@
-import { add } from "."
+import { sendGreetings } from "./birthdayService"
 
-it('should add', () => {
-    expect(add(1, 2)).toBe(3)
+it('should send greetings', () => {
+    // Act
+    sendGreetings("people.csv", new Date(), "localhost", 25)
+    // Assert 
+    // TODO
 })

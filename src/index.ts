@@ -1,5 +1,5 @@
-console.log("Hello world!")
+import { sendGreetings } from "./birthdayService";
 
-export const add = (a: number, b: number) => {
-    return a + b
-}
+console.log("Sending greetings...")
+
+sendGreetings("people.csv", new Date(), "localhost", 25);
