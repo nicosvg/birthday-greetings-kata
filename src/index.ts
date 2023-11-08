@@ -1,5 +1,8 @@
 import { sendGreetings } from "./birthdayService";
+import { FileEmployeeRepository } from "./fileEmployeeRepository";
 
 console.log("Sending greetings...")
 
-sendGreetings("people.csv", new Date(), "localhost", 25);
+const employeeRepository = new FileEmployeeRepository()
+
+sendGreetings(employeeRepository, new Date(), "localhost", 25);
