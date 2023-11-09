@@ -1,11 +1,16 @@
+import fs from 'fs';
 import path from "path";
-import fs from 'fs'
-import { EmployeeRepository } from "./birthdayService";
-import { Employee } from "./employee";
+import { Employee } from "../domain/employee";
+import { EmployeeRepository } from '../ports/EmployeeRepository';
 
 export class FileEmployeeRepository implements EmployeeRepository {
+    filename: string;
+    constructor(filename: string) {
+        this.filename = filename
+    }
+
     getByBirthDate(date: Date): Employee[] {
-        const data = fs.readFileSync(path.resolve(__dirname, `../resources/people.csv`), 'utf8')
+        const data = fs.readFileSync(path.resolve(__dirname, this.filename), 'utf8')
         // split the contents by new line
         const lines = data.split(/\r?\n/)
         // Remove first line
